@@ -6,12 +6,7 @@ get '/' do
 end
 
 get '/numbers' do
-   numbers = [
-     "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
-     "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
-     "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
-     "31", "32", "33", "34", "35", "36", "37", "38", "39", "40"
-     ]
+   numbers = (1..120).to_a
    @number = numbers[rand(numbers.length)]
    erb :numbers
 end
@@ -31,6 +26,13 @@ get '/numbers/words' do
    ]
    @number = wordNumbers[rand(wordNumbers.length)]
    erb :numbers
+end
+
+get '/numbers/add' do
+  numbers = (1..10).to_a
+  @n1 = numbers[rand(numbers.length)]
+  @n2 = numbers[rand(numbers.length)]
+  erb :add
 end
 
 get '/words' do
